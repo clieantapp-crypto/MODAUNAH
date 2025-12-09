@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CookieConsent } from "@/components/cookie-consent"
-import { AdSpace } from "@/components/ad-space"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -54,29 +53,24 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="border-b border-border bg-gradient-to-b from-background to-muted/20">
           <div className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-              <div className="flex flex-col justify-center space-y-6">
-                <Badge className="w-fit bg-primary text-primary-foreground">Latest Industry News</Badge>
-                <h1 className="text-4xl font-bold tracking-tight text-foreground text-balance md:text-5xl lg:text-6xl">
-                  The Future of Telecommunications
-                </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-                  Stay ahead with in-depth analysis, breaking news, and expert insights on the rapidly evolving
-                  telecommunications industry.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button asChild size="lg">
-                    <Link href="/blog">
-                      Explore Articles <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg">
-                    <Link href="/#latest">Latest Updates</Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <AdSpace className="h-[400px] w-full" />
+            <div className="flex flex-col justify-center space-y-6 text-center">
+              <Badge className="mx-auto w-fit bg-primary text-primary-foreground">Latest Industry News</Badge>
+              <h1 className="text-4xl font-bold tracking-tight text-foreground text-balance md:text-5xl lg:text-6xl">
+                The Future of Telecommunications
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed text-pretty mx-auto max-w-3xl">
+                Stay ahead with in-depth analysis, breaking news, and expert insights on the rapidly evolving
+                telecommunications industry.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Button asChild size="lg">
+                  <Link href="/blog">
+                    Explore Articles <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <Link href="/#latest">Latest Updates</Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -133,13 +127,6 @@ export default function HomePage() {
                 </Card>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Ad Section */}
-        <section className="border-b border-border bg-muted/30">
-          <div className="container mx-auto max-w-7xl px-4 py-8">
-            <AdSpace className="h-[200px] w-full" />
           </div>
         </section>
 

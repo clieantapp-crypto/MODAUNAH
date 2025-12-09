@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { AdSpace } from "@/components/ad-space"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -88,13 +87,6 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Ad Section */}
-        <section className="border-b border-border bg-muted/30">
-          <div className="container mx-auto max-w-7xl px-4 py-8">
-            <AdSpace className="h-[150px] w-full" />
-          </div>
-        </section>
-
         {/* Blog Posts Grid */}
         <section className="border-b border-border">
           <div className="container mx-auto max-w-7xl px-4 py-16">
@@ -114,34 +106,27 @@ export default function BlogPage() {
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post, index) => (
-                <div key={post.id} className="space-y-6">
-                  <Card className="flex h-full flex-col transition-shadow hover:shadow-lg">
-                    <CardHeader>
-                      <div className="mb-3 flex items-center justify-between">
-                        <Badge variant="secondary">{post.category}</Badge>
-                        <span className="text-xs text-muted-foreground">{post.readTime}</span>
-                      </div>
-                      <CardTitle className="text-xl text-balance text-card-foreground">{post.title}</CardTitle>
-                      <CardDescription className="text-pretty leading-relaxed">{post.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">{post.date}</span>
-                        <Button variant="ghost" size="sm" asChild>
-                          <Link href={`/blog/${post.id}`}>
-                            Read <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Ad space every 3 posts */}
-                  {(index + 1) % 3 === 0 && index !== posts.length - 1 && (
-                    <AdSpace className="h-[250px] w-full md:col-span-2 lg:col-span-3" />
-                  )}
-                </div>
+              {posts.map((post) => (
+                <Card key={post.id} className="flex h-full flex-col transition-shadow hover:shadow-lg">
+                  <CardHeader>
+                    <div className="mb-3 flex items-center justify-between">
+                      <Badge variant="secondary">{post.category}</Badge>
+                      <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                    </div>
+                    <CardTitle className="text-xl text-balance text-card-foreground">{post.title}</CardTitle>
+                    <CardDescription className="text-pretty leading-relaxed">{post.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="mt-auto">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">{post.date}</span>
+                      <Button variant="ghost" size="sm" asChild>
+                        <Link href={`/blog/${post.id}`}>
+                          Read <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
 
